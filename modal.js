@@ -30,13 +30,14 @@ function closeForm() {
 document.getElementById("first"); addEventListener("input", checkFirstName)
 document.getElementById("last"); addEventListener("input", checkLastName)
 document.getElementById("email"); addEventListener("input", checkEmail)
-document.getElementById("quantity"); addEventListener("click", checkQuantity)
-document.getElementById("location1", "location2", "location3", "location4", "location5", "location6"); addEventListener("click", checkLocation)
+document.getElementById("birhdate"); addEventListener("select", checkBirhdate)
+document.getElementById("quantity"); addEventListener("click select", checkQuantity)
+document.getElementById("location1", "location2", "location3", "location4", "location5", "location6"); addEventListener("select", checkCity)
 document.getElementById("checkbox1"); addEventListener("click", checkBox1)
 
 
 
-// Validation du champ prénom
+// Validation du prénom
 let isFirstNameCorrect = false;
 
 function checkFirstName() {
@@ -56,13 +57,13 @@ function checkFirstName() {
 
 }
 
-// Validation du champ nom
+// Validation du nom
 let isLastNameCorrect = false;
 
 function checkLastName() {
   let lastName = document.getElementById("last")
   // Si le nom est correct
-  if (lastName.value !== null && lastName.value.length > 1) {
+  if (lastName.value != null && lastName.value.length > 1) {
     lastName.parentNode.removeAttribute("data-error")
     lastName.parentNode.removeAttribute("data-error-visible")
     isFirstNameCorrect = true
@@ -76,13 +77,13 @@ function checkLastName() {
 
 }
 
-// Validation du champ de l'adresse mail
+// Validation de l'adresse mail
 let isEmailCorrect = false;
 
 function checkEmail() {
   let email = document.getElementById("email")
   // Si l'adresse mail est correcte
-  if (email.value !== null && email.value.length > 1) {
+  if (email.value != null && email.value.length > 1) {
     email.parentNode.removeAttribute("data-error")
     email.parentNode.removeAttribute("data-error-visible")
     isEmailCorrect = true
@@ -96,13 +97,33 @@ function checkEmail() {
 
 }
 
-// Validation du champ du nombre de tournois
+// Validation de la date de naissance
+let isBirthdateCorrect = false;
+
+function checkBirhdate() {
+  let birhdate = document.getElementById("birthdate")
+  // Si la date de naissance est correcte
+  if (birhdate.value != null && birhdate.value.length > 1) {
+    birhdate.parentNode.removeAttribute("data-error")
+    birhdate.parentNode.removeAttribute("data-error-visible")
+    isBirthdateCorrect = true
+  }
+  // Si la date de naissance est incorrecte
+  else {
+    birhdate.parentNode.setAttribute("data-error", "Vous devez entrer votre date de naissance.")
+    birhdate.parentNode.setAttribute("data-error-visible", "true")
+    isBirthdateCorrect = false
+  }
+
+}
+
+// Validation du nombre de participation à des tournois
 let isQuantityCorrect = false;
 
 function checkQuantity() {
   let quantity = document.getElementById("quantity")
   // Si la valeur est correcte
-  if (quantity.value !== null && quantity.value.length > 1) {
+  if (quantity.value != null && quantity.value.length < 1) {
     quantity.parentNode.removeAttribute("data-error")
     quantity.parentNode.removeAttribute("data-error-visible")
     isQuantityCorrect = true
@@ -116,13 +137,13 @@ function checkQuantity() {
 
 }
 
-// Validation du champ location
+// Validation des villes de tournoi
 let isCityCorrect = false;
 
-function checkLocation() {
-  let city = document.getElementById("location1", "location2", "location3", "location4", "location5", "location6")
+function checkCity() {
+  let city = document.querySelectorAll('input[name="location"]')
   // Si une ville est sélectionnée
-  if (city.value !== null && city.value.length > 1) {
+  if (city.value != null) {
     city.parentNode.removeAttribute("data-error")
     city.parentNode.removeAttribute("data-error-visible")
     isCityCorrect = true
@@ -136,13 +157,13 @@ function checkLocation() {
 
 }
 
-// Validation des conditions d'utilisations
+// Validation des conditions d'utilisation
 let isCheckbox1Correct = false;
 
-function checkLocation() {
+function checkBox1() {
   let checkBox1 = document.getElementById("checkbox1")
   // Si une ville est sélectionnée
-  if (checkBox1.value !== null && checkBox1.value.length > 1) {
+  if (checkBox1.value.checked == true) {
     checkBox1.parentNode.removeAttribute("data-error")
     checkBox1.parentNode.removeAttribute("data-error-visible")
     isCheckbox1Correct = true
@@ -155,3 +176,15 @@ function checkLocation() {
   }
 
 }
+
+// Soumettre le formulaire
+
+function validate() {
+  let submit = document.forms["reserve"]["first", "last", "email", "birthdate", "quantity", "location", "checkbox1"].value;
+  if (submit == "") {
+    alert ("Réservation interrompue, verifiez vos informations.");
+    return false;
+  }
+}
+
+

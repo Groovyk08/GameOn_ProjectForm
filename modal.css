@@ -226,7 +226,7 @@ input {
   display: block;
   margin-top: 7px;
   margin-bottom: 7px;
-  text-align: right;
+  text-align: left;
   line-height: 0.3;
   opacity: 0;
   transition: 0.3s;
@@ -520,6 +520,13 @@ footer {
 }
 
 @media screen and (max-width: 800px) {
+  body {
+    padding: 0;
+  }
+
+  .img {
+    font-size: 0.5em;
+  }
   .hero-section {
     display: block;
     box-shadow: unset;
@@ -527,7 +534,7 @@ footer {
   .hero-content {
     background: #fff;
     color: #000;
-    padding: 20px;
+    padding: 10px;
   }
   .hero-content::after {
     content: unset;
@@ -536,7 +543,7 @@ footer {
     display: none;
   }
   .hero-headline {
-    font-size: 4.5rem;
+    font-size: 2rem;
     white-space: normal;
   }
   .hero-text {
