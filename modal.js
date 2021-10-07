@@ -200,7 +200,7 @@ function validate() {
   if (isFirstNameCorrect && isLastNameCorrect && isEmailCorrect && isBirthdateCorrect && isQuantityCorrect && isCityCorrect && isCheckbox1Correct == true) {
     // Confirmation du booking 
     booking.style.display = "block";
-    return true;
+    
   }
   // Sinon 
   else {

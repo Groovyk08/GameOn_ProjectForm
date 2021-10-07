@@ -343,7 +343,7 @@ input[data-error]::after {
   transform: rotate(-45deg);
 }
 
-.btn-submit, .btn-signup {
+.btn-submit, .btn-signup, .btn-close-booking {
   background: #fe142f;
   display: block;
   margin: 0 auto;
@@ -504,32 +504,15 @@ input[data-error]::after {
 }
 
 .booking-message {
-  position: absolute;
-  width: 309px;
-  height: 153px;
-  left: 566px;
-  top: 423px;
-  
-  font-family: "DM Sans";
-  font-style: normal;
-  font-weight: normal;
-  font-size: 36px;
-  line-height: 142.6%;
-  /* or 51px */
-  
+  flex-grow: 1;
   display: flex;
   align-items: center;
+  width: 309px;
   text-align: center;
-  
-  color: #FFFFFF;
+  font-size: 30px;
+  font-weight: 400;
 }
 
-.booking-confirmed, .booking-message::before, ::after {
-  box-sizing: border-box;
-  min-width: 0;
-  margin: 0;
-  padding: 0;
-}
 
 .hero-img {
   grid-column: span 8;
