@@ -45,8 +45,6 @@ locations.forEach(location => {
 
 
 // Validation du prénom
-
-
 function checkFirstName() {
   let isFirstNameCorrect = false;
   let firstName = document.getElementById("first")
@@ -66,8 +64,6 @@ function checkFirstName() {
 }
 
 // Validation du nom
-
-
 function checkLastName() {
   let isLastNameCorrect = false;
   let lastName = document.getElementById("last")
@@ -87,8 +83,6 @@ function checkLastName() {
 }
 
 // Validation de l'adresse mail
-
-
 function checkEmail() {
   let isEmailCorrect = false;
   let email = document.getElementById("email")
@@ -113,8 +107,6 @@ function checkEmail() {
 }
 
 // Validation de la date de naissance
-
-
 function checkBirhdate() {
   let isBirthdateCorrect = false;
   let birhdate = document.getElementById("birthdate")
@@ -136,8 +128,6 @@ function checkBirhdate() {
 }
 
 // Validation du nombre de participation à des tournois
-
-
 function checkQuantity() {
   let isQuantityCorrect = false;
   let quantity = document.getElementById("quantity")
@@ -159,13 +149,11 @@ function checkQuantity() {
 }
 
 // Validation des villes de tournoi
-
-
 function checkCity() {
   let isCityCorrect = false;
   let city = document.getElementsByName("location")
   city.forEach(c => {
-    
+
     // Si une ville est sélectionnée
     if (c.checked == true) {
 
@@ -186,8 +174,6 @@ function checkCity() {
 }
 
 // Validation des conditions d'utilisation
-
-
 function checkBox1() {
   let isCheckbox1Correct = false;
   let checkBox1 = document.getElementById("checkbox1")
@@ -209,7 +195,6 @@ function checkBox1() {
 }
 
 // Soumettre le formulaire
-
 function validate(e) {
   e.preventDefault()
   isFirstNameCorrect = checkFirstName()
@@ -221,10 +206,12 @@ function validate(e) {
   isCheckbox1Correct = checkBox1()
   // Si le formulaire est rempli correctement
   if (isFirstNameCorrect && isLastNameCorrect && isEmailCorrect && isBirthdateCorrect && isQuantityCorrect && isCityCorrect && isCheckbox1Correct == true) {
+    document.forms['reserve'].submit();
+    modalbg.style.display = "none";
     // Confirmation du booking 
     //booking.style.display = "block";
     alert("Merci ! Votre réservation a bien été prise en compte")
     
-  }
 
+  }
 }
