@@ -209,8 +209,8 @@ function validate(e) {
     document.forms['reserve'].submit();
     modalbg.style.display = "none";
     // Confirmation du booking 
-    //booking.style.display = "block";
-    alert("Merci ! Votre réservation a bien été prise en compte")
+    booking.style.display = "block";
+    //alert("Merci ! Votre réservation a bien été prise en compte")
     
 
   }
