@@ -502,6 +502,7 @@ input[data-error]::after {
 /* Confirmation d'enregistrement */
 
 .booking-confirmed {
+  display: none;
   z-index: 1;
   position: absolute;
   left: 31.94%;
