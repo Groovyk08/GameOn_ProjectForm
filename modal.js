@@ -26,17 +26,21 @@ function closeForm() {
 }
 
 // Confirmation du booking 
-const booking = document.querySelectorAll("booking-confirmed");
+const booking = document.getElementById("booking-confirmed");
+
+//Fermeture du popup booking 
+function closeBooking() {
+  booking.style.display = "none"
+}
 
 // ID des éléments du formulaire 
-document.getElementById("first"); //addEventListener("input", checkFirstName)
-document.getElementById("last"); //addEventListener("input", checkLastName)
-document.getElementById("email"); //addEventListener("input", checkEmail)
-document.getElementById("birhdate"); //addEventListener("click", checkBirhdate)
-document.getElementById("quantity"); //addEventListener("click select", checkQuantity)
-document.getElementsByName("location"); //addEventListener("change", checkCity)
-document.getElementById("checkbox1"); //addEventListener("click", checkBox1)
-
+document.getElementById("first");
+document.getElementById("last");
+document.getElementById("email");
+document.getElementById("birhdate");
+document.getElementById("quantity");
+document.getElementsByName("location");
+document.getElementById("checkbox1");
 const locations = document.getElementsByName("location");
 locations.forEach(location => {
   location.addEventListener("change", checkCity)
@@ -71,13 +75,13 @@ function checkLastName() {
   if (lastName.value !== null && lastName.value.length > 1) {
     lastName.parentNode.removeAttribute("data-error")
     lastName.parentNode.removeAttribute("data-error-visible")
-    isFirstNameCorrect = true
+    isLastNameCorrect = true
   }
   // Si le nom est incorrect
   else {
     lastName.parentNode.setAttribute("data-error", "Vous devez entrer 2 caractères ou plus pour le champ du nom.")
     lastName.parentNode.setAttribute("data-error-visible", "true")
-    isFirstNameCorrect = false
+    isLastNameCorrect = false
   }
   return isLastNameCorrect
 }
@@ -197,21 +201,24 @@ function checkBox1() {
 // Soumettre le formulaire
 function validate(e) {
   e.preventDefault()
-  isFirstNameCorrect = checkFirstName()
-  isLastNameCorrect = checkLastName()
-  isEmailCorrect = checkEmail()
-  isBirthdateCorrect = checkBirhdate()
-  isQuantityCorrect = checkQuantity()
-  isCityCorrect = checkCity()
-  isCheckbox1Correct = checkBox1()
+  const isFirstNameCorrect = checkFirstName()
+  const isLastNameCorrect = checkLastName()
+  const isEmailCorrect = checkEmail()
+  const isBirthdateCorrect = checkBirhdate()
+  const isQuantityCorrect = checkQuantity()
+  const isCityCorrect = checkCity()
+  const isCheckbox1Correct = checkBox1()
+  const booking = document.getElementById("booking-confirmed");
+  var form = document.getElementsByName('reserve')[0];
+
   // Si le formulaire est rempli correctement
   if (isFirstNameCorrect && isLastNameCorrect && isEmailCorrect && isBirthdateCorrect && isQuantityCorrect && isCityCorrect && isCheckbox1Correct == true) {
-    document.forms['reserve'].submit();
     modalbg.style.display = "none";
+
     // Confirmation du booking 
     booking.style.display = "block";
-    //alert("Merci ! Votre réservation a bien été prise en compte")
-    
 
+    // Reset du formulaire
+    form.reset();
   }
 }

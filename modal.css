@@ -61,9 +61,10 @@ img {
   background-color: #ff0000;
   color: #ffffff;
   border-radius: 15px;
+  text-decoration: underline;
 }
 
-.topnav a.active {
+.topnav a.hover {
   background-color: #ff0000;
   color: #ffffff;
   border-radius: 15px;
@@ -72,8 +73,6 @@ img {
 .topnav .icon {
   display: none;
 }
-
-
 
 main {
   font-size: 130%;
@@ -308,9 +307,38 @@ input[data-error]::after {
   transform: rotate(-45deg);
 }
 
+/* */
+.closeBooking{
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  width: 32px;
+  height: 32px;
+  opacity: 1;
+  cursor: pointer;
+  transform: scale(0.7);
+}
+
+.closeBooking:before, .closeBooking:after {
+  position: absolute;
+  left: 15px;
+  content: " ";
+  height: 33px;
+  width: 3px;
+  background-color: #fff;
+}
+
+.closeBooking:before {
+  transform: rotate(45deg);
+}
+
+.closeBooking:after {
+  transform: rotate(-45deg);
+}
+
 /* Forme des boutons */
 
-.btn-submit, .btn-signup, .btn-close-booking {
+.btn-submit, .btn-signup {
   background: #fe142f;
   display: block;
   margin: 0 auto;
@@ -320,6 +348,20 @@ input[data-error]::after {
   color: #fff;
   cursor: pointer;
   border: 0;
+}
+
+.btn-close-booking {
+  background: #fe142f;
+  display: block;
+  margin: 0 auto;
+  border-radius: 7px;
+  font-size: 1rem;
+  padding: 12px 82px;
+  color: #fff;
+  cursor: pointer;
+  border: 0;
+  right: 15px;
+  top: 15px;
 }
 
 /* custom select styles */
@@ -460,22 +502,15 @@ input[data-error]::after {
 /* Confirmation d'enregistrement */
 
 .booking-confirmed {
+  z-index: 1;
   position: absolute;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  align-content: center;
-  justify-content: center;
-  align-items: center;
-  left: 5.94%;
-  right: 4.83%;
-  top: 5.5%;
-  bottom: 2.44%;
-  font-size: 36px;
+  left: 31.94%;
+  right: 30.83%;
+  top: 8.5%;
+  bottom: 8.44%;
   background: #232323;
   box-shadow: 0px 12px 12px rgb(0 0 0 / 25%);
   border-radius: 8px;
-  display: none;
 }
 
 .booking-message {
@@ -490,6 +525,7 @@ input[data-error]::after {
   width: 309px;
   font-size: 30px;
   font-weight: 400;
+  color: white;
 }
 
 .hero-img {
@@ -522,6 +558,7 @@ footer {
 }
 
 /* ---------------------- PARTIE RESPONSIVE -------------------*/
+
 @media screen and (max-width: 768px) {
   .topnav a {
     display: none;
@@ -529,6 +566,7 @@ footer {
   .topnav a.icon {
     float: right;
     display: block;
+    color: #fe142f;
   }
 }
 
@@ -556,16 +594,16 @@ footer {
     float: right;
     display: block;
     margin-top: -15px;
+    color: #fe142f;
   }
 }
-
 
 @media screen and (max-width: 800px) {
   body {
     padding: 0;
   }
   .img {
-    font-size: 0.5em;
+    height: 20px;
   }
   .hero-section {
     display: block;
@@ -585,10 +623,12 @@ footer {
   .hero-headline {
     font-size: 2rem;
     white-space: normal;
+    max-width: 60%;
+    font-weight: bold;
   }
   .hero-text {
-    width: unset;
-    font-size: 1.5rem;
+    width: 70%;
+    font-size: 14px;
   }
   .hero-img img {
     border-radius: 10px;
@@ -606,6 +646,7 @@ footer {
 }
 
 /* Animation d'ouverture du formulaire */
+
 @keyframes modalopen {
   from {
     opacity: 0;

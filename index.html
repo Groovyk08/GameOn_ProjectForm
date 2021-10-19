@@ -13,11 +13,9 @@
 <body>
   <div class="topnav" id="myTopnav">
     <div class="header-logo">
-      <img alt="logo" src="Logo.png" width="auto" height="auto" />
+      <img class="img" alt="logo" src="Logo.png" />
     </div>
     <div class="main-navbar">
-
-      <a href="#" class="active"><span>Accueil</span></a>
       <a href="#"><span>Détails de l'évènement</span></a>
       <a href="#"><span>À propos</span></a>
       <a href="#"><span>Contact</span></a>
@@ -53,14 +51,14 @@
 
     <div class="bground">
       <div id="content">
-        <span class="close" onclick="closeForm()"></span> 
+        <span class="close" onclick="closeForm()"></span>
         <div class="modal-body">
           <form name="reserve" action="index.html" method="get" onsubmit="return validate(event);">
 
             <span class="data-error">
               <div class="formData">
                 <label>Prénom</label><br>
-                <input class="text-control" type="text" id="first" name="first" minlength="2"  /><br>
+                <input class="text-control" type="text" id="first" name="first" minlength="2" /><br>
               </div>
             </span>
 
@@ -74,22 +72,21 @@
             <span class="data-error">
               <div class="formData">
                 <label>E-mail</label><br>
-                <input class="text-control" type="text" id="email" name="email"  /><br>
+                <input class="text-control" type="text" id="email" name="email" /><br>
               </div>
             </span>
 
             <span class="data-error">
               <div class="formData">
                 <label>Date de naissance</label><br>
-                <input class="text-control" type="date" id="birthdate" name="birthdate"  /><br>
+                <input class="text-control" type="date" id="birthdate" name="birthdate" /><br>
               </div>
             </span>
 
             <span class="data-error">
               <div class="formData">
                 <label>À combien de tournois GameOn avez-vous déjà participé ?</label><br>
-                <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99" 
-                  step="1">
+                <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99" step="1">
               </div>
 
               <p class="text-label">Quelles villes ?</p>
@@ -140,18 +137,21 @@
 
             <br>
         </div>
-        <input class="btn-submit" type="submit" class="button" value="C'est parti" onclick="return validate(event);"/>
+        <input class="btn-submit" type="submit" class="button" value="C'est parti" onclick="return validate(event);" />
         </form>
-        <div class="booking-confirmed " id="booking-confirmed" >
-          <div class="booking-message">
-            Merci !
-            <br>
-            Votre réservation a bien été prise en compte
-          </div>
-          <button class="btn-close-booking" type="button">Fermer</button>
-        </div>
+
       </div>
     </div>
+
+    </div>
+    <div class="booking-confirmed " id="booking-confirmed">
+      <span class="closeBooking" onclick="closeBooking()"></span>
+      <div class="booking-message">
+        Merci !
+        <br>
+        Votre réservation a bien été prise en compte
+      </div>
+      <button class="btn-close-booking" type="button" onclick="closeBooking()">Fermer</button>
     </div>
   </main>
   <footer>
