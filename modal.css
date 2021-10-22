@@ -34,6 +34,7 @@ img {
 }
 
 .topnav {
+  display: flex;
   overflow: hidden;
   margin: 3.5%;
   align-items: center;
