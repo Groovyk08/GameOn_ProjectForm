@@ -92,7 +92,7 @@ function checkEmail() {
   let isEmailCorrect = false;
   let email = document.getElementById("email")
 
-  // REGEX pour s'assurer la bonne saisi de l'adresse mail
+  // REGEX pour s'assurer la bonne saisie de l'adresse mail
   const pattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   // Si l'adresse mail est correcte
@@ -137,14 +137,14 @@ function checkQuantity() {
   let isQuantityCorrect = false;
   let quantity = document.getElementById("quantity")
 
-  // Si la valeur est correcte
+  // Si la valeur saisie est correcte
   if (quantity.value.length > 0) {
     quantity.parentNode.removeAttribute("data-error")
     quantity.parentNode.removeAttribute("data-error-visible")
     isQuantityCorrect = true
   }
 
-  // Si la valeur est incorrecte
+  // Si la valeur saisie est incorrecte
   else {
     quantity.parentNode.setAttribute("data-error", "Vous devez indiquer un nombre numérique comprise en 0 et 99.")
     quantity.parentNode.setAttribute("data-error-visible", "true")
@@ -157,20 +157,21 @@ function checkQuantity() {
 function checkCity() {
   let isCityCorrect = false;
   let city = document.getElementsByName("location")
+
+  // Vérification qu'une ville est bien sélectionnée dans le tableau 
   city.forEach(c => {
 
-    // Si une ville est sélectionnée
     if (c.checked == true) {
 
       isCityCorrect = true
     }
-
-
   })
+  // Si une ville est sélectionnée
   if (isCityCorrect) {
     city[0].parentNode.removeAttribute("data-error")
     city[0].parentNode.removeAttribute("data-error-visible")
   }
+  // Si une ville n'est pas sélectionnée
   else {
     city[0].parentNode.setAttribute("data-error", "Vous devez choisir une ville.")
     city[0].parentNode.setAttribute("data-error-visible", "true")
@@ -183,14 +184,14 @@ function checkBox1() {
   let isCheckbox1Correct = false;
   let checkBox1 = document.getElementById("checkbox1")
 
-  // Si une ville est sélectionnée
+  // Si les conditions d'utilisation sont acceptées
   if (checkBox1.checked == true) {
     checkBox1.parentNode.removeAttribute("data-error")
     checkBox1.parentNode.removeAttribute("data-error-visible")
     isCheckbox1Correct = true
   }
 
-  // Si une ville n'est pas sélectionnée
+  // Si les conditions d'utilisation ne sont pas acceptées
   else {
     checkBox1.parentNode.setAttribute("data-error", "Vous devez accepter les conditions d'utilisation.")
     checkBox1.parentNode.setAttribute("data-error-visible", "true")
