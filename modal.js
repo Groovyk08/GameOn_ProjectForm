@@ -71,6 +71,7 @@ function checkFirstName() {
 function checkLastName() {
   let isLastNameCorrect = false;
   let lastName = document.getElementById("last")
+
   // Si le nom est correct
   if (lastName.value !== null && lastName.value.length > 1) {
     lastName.parentNode.removeAttribute("data-error")
@@ -135,7 +136,7 @@ function checkBirhdate() {
 function checkQuantity() {
   let isQuantityCorrect = false;
   let quantity = document.getElementById("quantity")
-  console.log(quantity.value.length)
+
   // Si la valeur est correcte
   if (quantity.value.length > 0) {
     quantity.parentNode.removeAttribute("data-error")
