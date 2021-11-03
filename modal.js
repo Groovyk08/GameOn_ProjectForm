@@ -52,8 +52,9 @@ locations.forEach(location => {
 function checkFirstName() {
   let isFirstNameCorrect = false;
   let firstName = document.getElementById("first")
+  const regexfname = /^[a-zA-Z]+( [a-zA-Z]+)+$/;
   // Si le prénom est correct
-  if (firstName.value !== null && firstName.value.length > 1) {
+  if (firstName.value !== null && firstName.value.length > 1 && regexfname.test(firstName.value)) {
     firstName.parentNode.removeAttribute("data-error")
     firstName.parentNode.removeAttribute("data-error-visible")
     isFirstNameCorrect = true
@@ -71,9 +72,9 @@ function checkFirstName() {
 function checkLastName() {
   let isLastNameCorrect = false;
   let lastName = document.getElementById("last")
-
+  const regexlname = /^[a-zA-Z]+( [a-zA-Z]+)+$/;
   // Si le nom est correct
-  if (lastName.value !== null && lastName.value.length > 1) {
+  if (lastName.value !== null && lastName.value.length > 1 && regexlname.test(lastName.value)) {
     lastName.parentNode.removeAttribute("data-error")
     lastName.parentNode.removeAttribute("data-error-visible")
     isLastNameCorrect = true
@@ -91,12 +92,10 @@ function checkLastName() {
 function checkEmail() {
   let isEmailCorrect = false;
   let email = document.getElementById("email")
-
-  // REGEX pour s'assurer la bonne saisie de l'adresse mail
-  const pattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  const regexemail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   // Si l'adresse mail est correcte
-  if (email.value !== null && email.value.length > 1) {
+  if (email.value !== null && email.value.length > 1 && regexemail.test(email.value)) {
     email.parentNode.removeAttribute("data-error")
     email.parentNode.removeAttribute("data-error-visible")
     isEmailCorrect = true
@@ -115,9 +114,9 @@ function checkEmail() {
 function checkBirhdate() {
   let isBirthdateCorrect = false;
   let birhdate = document.getElementById("birthdate")
-
+  const regexbirthdate = /^(0[1-9]|1[0-2])\/(0[1-9]|1\d|2\d|3[01])\/(19|20)\d{2}$/;
   // Si la date de naissance est correcte
-  if (birhdate.value !== null && birhdate.value.length > 1) {
+  if (birhdate.value !== null && birhdate.value.length > 1 && regexbirthdate.test(birhdate.value)) {
     birhdate.parentNode.removeAttribute("data-error")
     birhdate.parentNode.removeAttribute("data-error-visible")
     isBirthdateCorrect = true
@@ -136,9 +135,9 @@ function checkBirhdate() {
 function checkQuantity() {
   let isQuantityCorrect = false;
   let quantity = document.getElementById("quantity")
-
+  const regexQuantity = /^[1-9]\d*$/;
   // Si la valeur saisie est correcte
-  if (quantity.value.length > 0) {
+  if (quantity.value.length > 0 && regexQuantity.test(quantity.value)) {
     quantity.parentNode.removeAttribute("data-error")
     quantity.parentNode.removeAttribute("data-error-visible")
     isQuantityCorrect = true
