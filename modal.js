@@ -52,7 +52,7 @@ locations.forEach(location => {
 function checkFirstName() {
   let isFirstNameCorrect = false;
   let firstName = document.getElementById("first")
-  const regexfname = /^[a-zA-Z]+( [a-zA-Z]+)+$/;
+  const regexfname = /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,}$/;
   // Si le prénom est correct
   if (firstName.value !== null && firstName.value.length > 1 && regexfname.test(firstName.value)) {
     firstName.parentNode.removeAttribute("data-error")
@@ -72,7 +72,7 @@ function checkFirstName() {
 function checkLastName() {
   let isLastNameCorrect = false;
   let lastName = document.getElementById("last")
-  const regexlname = /^[a-zA-Z]+( [a-zA-Z]+)+$/;
+  const regexlname = /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,}$/;
   // Si le nom est correct
   if (lastName.value !== null && lastName.value.length > 1 && regexlname.test(lastName.value)) {
     lastName.parentNode.removeAttribute("data-error")
@@ -114,9 +114,15 @@ function checkEmail() {
 function checkBirhdate() {
   let isBirthdateCorrect = false;
   let birhdate = document.getElementById("birthdate")
-  const regexbirthdate = /^(0[1-9]|1[0-2])\/(0[1-9]|1\d|2\d|3[01])\/(19|20)\d{2}$/;
+  console.log(birhdate.value)
+  //const splited = birhdate.split("/")
+  //const americanDate = splited[1]+"/"+splited[0]+"/"+splited[2]
+  const now = new Date()
+  const date = new Date(birhdate.value)
+  console.log(now)
+  console.log(date)
   // Si la date de naissance est correcte
-  if (birhdate.value !== null && birhdate.value.length > 1 && regexbirthdate.test(birhdate.value)) {
+  if (birhdate.value !== null && birhdate.value.length > 1 && now.getTime() - date.getTime() > 567648000000 && now.getTime()- date.getTime()< 3153600000000) {
     birhdate.parentNode.removeAttribute("data-error")
     birhdate.parentNode.removeAttribute("data-error-visible")
     isBirthdateCorrect = true
@@ -135,7 +141,7 @@ function checkBirhdate() {
 function checkQuantity() {
   let isQuantityCorrect = false;
   let quantity = document.getElementById("quantity")
-  const regexQuantity = /^[1-9]\d*$/;
+  const regexQuantity = /^[0-9]\d*$/;
   // Si la valeur saisie est correcte
   if (quantity.value.length > 0 && regexQuantity.test(quantity.value)) {
     quantity.parentNode.removeAttribute("data-error")
@@ -145,7 +151,7 @@ function checkQuantity() {
 
   // Si la valeur saisie est incorrecte
   else {
-    quantity.parentNode.setAttribute("data-error", "Vous devez indiquer un nombre numérique comprise en 0 et 99.")
+    quantity.parentNode.setAttribute("data-error", "Vous devez indiquer une valeur numérique comprise entre 0 ou plus.")
     quantity.parentNode.setAttribute("data-error-visible", "true")
     isQuantityCorrect = false
   }
